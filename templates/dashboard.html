@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="loading" class="text-center mt-5">
+    <div class="spinner-border text-dark" role="status"></div>
+    <p class="mt-3 text-muted">Running analysis...</p>
+</div>
+
+<div id="dashboard-content" class="d-none">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-0">Your expense analysis</h4>
+        <button onclick="window.location.href='/upload'" class="btn btn-outline-dark btn-sm">
+            Upload new file
+        </button>
+    </div>
+
+    <div class="row g-3 mb-4" id="stat-cards"></div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-5">
+            <div class="card p-3">
+                <h6 class="mb-3">Spend by category</h6>
+                <canvas id="donut-chart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card p-3">
+                <h6 class="mb-3">Confidence score distribution</h6>
+                <canvas id="confidence-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-12">
+            <div class="card p-3">
+                <h6 class="mb-3">Spend by account</h6>
+                <div style="max-height: 200px;">
+                    <canvas id="account-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card p-3 mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0">Transaction details</h6>
+            <button onclick="exportCSV()" class="btn btn-outline-dark btn-sm">Export CSV</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-sm table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Account</th>
+                        <th>Category</th>
+                        <th>Confidence</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-table"></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

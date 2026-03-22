@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section style="padding: 80px 0 60px; text-align: center;">
+    <div style="max-width: 640px; margin: 0 auto;">
+        <span
+            style="background: #e8f4e8; color: #2d7a2d; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.05em;">AI
+            POWERED</span>
+        <h1 style="font-size: 48px; font-weight: 700; margin: 20px 0 16px; line-height: 1.15; color: #1a1a1a;">
+            Understand where your<br>money actually goes
+        </h1>
+        <p style="font-size: 18px; color: #666; margin-bottom: 36px; line-height: 1.6;">
+            Upload your bank statement and our ML model instantly categorises every transaction — Food, Transport,
+            Bills, Shopping and more — with confidence scores.
+        </p>
+        {% if user %}
+        <a href="/upload" class="btn btn-dark btn-lg px-5 me-3">Go to dashboard</a>
+        {% else %}
+        <a href="/register" class="btn btn-dark btn-lg px-5 me-3">Get started free</a>
+        <a href="/login" class="btn btn-outline-dark btn-lg px-4">Login</a>
+        {% endif %}
+    </div>
+</section>
+
+<section style="background: white; border-radius: 16px; padding: 48px; margin-bottom: 48px; border: 1px solid #e5e5e5;">
+    <div class="row g-4 text-center">
+        <div class="col-md-3">
+            <div style="font-size: 32px; margin-bottom: 12px;">📂</div>
+            <h6 style="font-weight: 600; margin-bottom: 8px;">Upload CSV, Excel or PDF</h6>
+            <p style="font-size: 14px; color: #888; margin: 0;">Supports all major bank statement formats</p>
+        </div>
+        <div class="col-md-3">
+            <div style="font-size: 32px; margin-bottom: 12px;">🤖</div>
+            <h6 style="font-weight: 600; margin-bottom: 8px;">ML categorisation</h6>
+            <p style="font-size: 14px; color: #888; margin: 0;">87% accuracy across 8 spending categories</p>
+        </div>
+        <div class="col-md-3">
+            <div style="font-size: 32px; margin-bottom: 12px;">📊</div>
+            <h6 style="font-weight: 600; margin-bottom: 8px;">Instant analytics</h6>
+            <p style="font-size: 14px; color: #888; margin: 0;">Charts, breakdowns and confidence scores</p>
+        </div>
+        <div class="col-md-3">
+            <div style="font-size: 32px; margin-bottom: 12px;">🔒</div>
+            <h6 style="font-weight: 600; margin-bottom: 8px;">Private and secure</h6>
+            <p style="font-size: 14px; color: #888; margin: 0;">Your data stays on your account only</p>
+        </div>
+    </div>
+</section>
+<section style="margin-bottom: 64px;">
+    <h5 style="text-align: center; margin-bottom: 32px; color: #888; font-weight: 400;">Detects these spending categories</h5>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+        <span style="background: #fff3e0; color: #f28e2b; border: 1px solid #f28e2b40; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Food</span>
+        <span style="background: #e8f5e9; color: #59a14f; border: 1px solid #59a14f40; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Groceries</span>
+        <span style="background: #e3f0fb; color: #4e79a7; border: 1px solid #4e79a740; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Transport</span>
+        <span style="background: #fdecea; color: #e15759; border: 1px solid #e1575940; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Bills</span>
+        <span style="background: #f3e8f8; color: #b07aa1; border: 1px solid #b07aa140; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Shopping</span>
+        <span style="background: #e0f5f5; color: #76b7b2; border: 1px solid #76b7b240; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Entertainment</span>
+        <span style="background: #fde8ee; color: #d63384; border: 1px solid #d6338440; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Health</span>
+        <span style="background: #fefbe6; color: #b8a000; border: 1px solid #b8a00040; padding: 8px 20px; border-radius: 24px; font-size: 14px; font-weight: 500;">Income</span>
+    </div>
+</section>
+
+<section style="background: #1a1a1a; border-radius: 16px; padding: 56px; text-align: center; margin-bottom: 48px;">
+    <h2 style="color: white; font-weight: 700; margin-bottom: 16px;">Ready to understand your spending?</h2>
+    <p style="color: #aaa; margin-bottom: 32px; font-size: 16px;">Takes less than 30 seconds. No credit card required.
+    </p>
+    {% if user %}
+    <a href="/upload" class="btn btn-light btn-lg px-5">Upload your file</a>
+    {% else %}
+    <a href="/register" class="btn btn-light btn-lg px-5">Create free account</a>
+    {% endif %}
+</section>
+
+{% endblock %}
