@@ -5,7 +5,6 @@ class Settings(BaseSettings):
     SECRET_KEY:str
     ALGORITHM:str
     ACCESS_TOKEN_EXPIRE_MINUTES:int
-    CELERY_BROKER_URL:str
     UPLOAD_DIR:str
     
     

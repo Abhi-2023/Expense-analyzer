@@ -9,9 +9,20 @@ from api.predict import router as predict_router
 from api.dashboard import router as dashboard_router
 from pages.dashboard_pages import router as dashboard_page_router
 from pages.home import router as home_router
+from contextlib import asynccontextmanager
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app):
+    import subprocess
+    subprocess.run(['alembic', 'upgrade', 'head'])
+    yield
+    
+    
+app = FastAPI(lifespan=lifespan)
+
 app.mount("/static", StaticFiles(directory='static'), name='static')
+app.include_router(home_router)
 app.include_router(auth_router)
 app.include_router(auth_pages_router)
 app.include_router(upload_router)
@@ -19,6 +30,6 @@ app.include_router(upload_pages_router)
 app.include_router(predict_router)
 app.include_router(dashboard_router)
 app.include_router(dashboard_page_router)
-app.include_router(home_router)
+
 
 

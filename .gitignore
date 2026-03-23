@@ -6,8 +6,6 @@ __pycache__/
 .env
 uploads/
 data/
-ml/artefacts/
-*.pkl
 .DS_Store
 *.csv
 *.pdf
