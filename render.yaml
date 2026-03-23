@@ -21,4 +21,4 @@ databases:
   - name: expense-db
     plan: free
     databaseName: expense_db
-    user: postgres
+    user: expense_user
