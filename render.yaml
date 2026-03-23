@@ -16,6 +16,8 @@ services:
       value: "60"
     - key: UPLOAD_DIR
       value: uploads
+    - key: PORT
+      value: "8000"
 
 databases:
   - name: expense-db
